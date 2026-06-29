@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  graph-app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: graph-algorithms
+    volumes:
+      - .:/app
+    tty: true
