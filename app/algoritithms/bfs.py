@@ -70,8 +70,8 @@ class BFS(IAlgorithmn):
         self.isConexo()
 
     def printpath(self):
-        print("Caminho gerado")
+        print("Caminho gerado BFS: ")
         for item in self.path:
-            print(item.data,end=' ')
+            print(f"{item.data}", end=' -> ')
         
         print()

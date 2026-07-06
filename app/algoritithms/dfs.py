@@ -61,8 +61,8 @@ class DFS(IAlgorithmn):
         self.isConexo()
     
     def printpath(self):
-        print("Caminho gerado")
+        print("Caminho gerado DFS: ")
         for item in self.path:
-            print(item.data,end=' ')
+            print(f"{item.data}", end=' -> ')
         
         print()
