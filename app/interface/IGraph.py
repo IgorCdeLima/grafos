@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-class AlgorithmBase(ABC):
+class IGraph(ABC):
 
     @abstractmethod
-    def run(self, graph, start=None):
+    def createrGraph():
         pass

@@ -1,6 +1,5 @@
 from interface.IAlgorithmn import IAlgorithmn
 
-class Biconnected(IAlgorithmn):
-    
+class Tarjan(IAlgorithmn):
     def run(self, graph):
-        print("Biconnected")
+        print("Tarjan")
