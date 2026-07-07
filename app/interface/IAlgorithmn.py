@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class IAlgorithmn(ABC):
 
     @abstractmethod
-    def run(graph):
+    def run():
         pass
     
     @abstractmethod

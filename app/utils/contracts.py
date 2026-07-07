@@ -1,12 +1,12 @@
-from algoritithms import (BFS, DFS, Biconnected, CPM, Kosaraju, Pert, Tarjan, TopologicalSort, TSP, Kruskal)
-from graph import (GKruskal, Graph)
+from algoritithms import (BFS, DFS, Biconnected, CPM, Kosaraju, Pert, Tarjan, TopologicalSort, TSP, Kruskal, Dijkstra, FloydWarshall)
+from graph import (GKruskal, Graph, GDijkstra, GFloydWarshall)
 
 class Contracts:
 
     
     algoritimos ={
-        "BFS": BFS,
-        "DFS": DFS,
+        "BFS":  BFS,
+        "DFS":  DFS,
         "Biconnected": Biconnected,
         "CPM": CPM,
         "Kosaraju": Kosaraju,
@@ -14,14 +14,18 @@ class Contracts:
         "Tarjan": Tarjan,
         "TopologicalSort": TopologicalSort,
         "TSP": TSP,
-        'Kruskal': Kruskal
+        'Kruskal': Kruskal,
+        'Dijkstra': Dijkstra ,
+        'FloydWarshall': FloydWarshall
     }
 
 
     graphs = {
         'Kruskal': GKruskal,
         'DFS': Graph,
-        'BFS': Graph
+        'BFS': Graph,
+        'Dijkstra': GDijkstra,
+        'FloydWarshall': GFloydWarshall
     }
 
     @classmethod

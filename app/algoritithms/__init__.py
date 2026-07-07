@@ -8,3 +8,5 @@ from .tarjan import Tarjan
 from .topological_sort import TopologicalSort
 from .tsp import TSP
 from .kruskal import Kruskal
+from .dijkstra import Dijkstra
+from .floyd_marshal import FloydWarshall

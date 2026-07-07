@@ -7,9 +7,9 @@ class BFS(IAlgorithmn):
     def save(self, graph):
         self.graph = graph
 
-    def run(self, graph):
+    def run(self):
         self.path = []
-        self.percorre_matriz(graph)
+        self.percorre_matriz(self.graph)
 
     
     def percorre_matriz(self, graph):
@@ -34,14 +34,15 @@ class BFS(IAlgorithmn):
 
     def isConexo(self):
         print("\nVerificando Conexões . . .\n")
-        self.run(self.graph)
+        self.run()
         nodes = []
 
         qtd_vertices = len(self.path)
         print(f"\tTotal de vertices: {qtd_vertices}\n")
 
         for node in self.path.copy():
-            self.run(node)
+            self.graph = node
+            self.run()
             visited_vertice = len(self.path)
             data = {
                 'address': node,
@@ -66,12 +67,23 @@ class BFS(IAlgorithmn):
 
         
     def TDE(self):
+        print("_"* 150)
+        print("\n")
+        print("+"*50)
+        print("BFS")
+        print("+"*50)
+        print("\n")
+        print("_"* 150)
         self.printpath()
+        print("_"* 150)
         self.isConexo()
+        print("_"* 150)
 
     def printpath(self):
-        print("Caminho gerado BFS: ")
+        print("Caminho gerado: ")
+        lista = []
         for item in self.path:
-            print(f"{item.data}", end=' -> ')
+            lista.append(str(item.data))
         
-        print()
+        print(" -> ".join(lista)) 
+        print()   

@@ -23,7 +23,7 @@ class Graph(IGraph):
                 if node != newNode and (random.choice([True, False, False, False, False])):
                     print(f"({node.data:02d})\t-->\t({newNode.data:02d})")
                     node.vizinhos.append(newNode)
-                    if random.choice([True, False]):
+                    if random.choice([True, False, False]):
                         print(f"({newNode.data:02d})\t-->\t({node.data:02d})")
                         newNode.vizinhos.append(node)
 

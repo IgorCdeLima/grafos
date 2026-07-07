@@ -13,6 +13,9 @@ class GKruskal(IGraph):
         graph = []
         NodeList = list(range(1, 11))
 
+        print("Grafo gerado:")
+        print(f"(ORIGEM)\t(PESO)\t\t(DESTINO)")
+
         for i in range(len(NodeList)):
             for j in range(i + 1, len(NodeList)):
                 graph.append(
@@ -27,8 +30,9 @@ class GKruskal(IGraph):
         graph.sort(key=lambda x: x.peso)
 
         for iten in graph:
-            print(f"({iten.origem:02d})---{iten.peso:02d}---({iten.destino:02d})")
+            print(f"  ({iten.origem:02d})\t---\t  {iten.peso:02d}\t---\t  ({iten.destino:02d})")
 
+        print("\nGrafo criado com sucesso!\n\n")
 
         return {
             'graph':graph,

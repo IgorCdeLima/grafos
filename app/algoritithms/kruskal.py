@@ -8,12 +8,21 @@ class Kruskal(IAlgorithmn):
         self.graph = data['graph']
         self.vertices = data['vertices']
 
-    def run(self, graph):
+    def run(self):
         self.kruskal()
 
     def TDE(self):
+        print("_"* 150)
+        print("\n")
+        print("+"*50)
+        print("Kruskal")
+        print("+"*50)
+        print("\n")
+        print("_"* 150)
+        print("\nLista de Arestas:")
         for aresta in self.mst:
-            print(f"Aresta: {aresta.origem} - {aresta.destino} | Peso: {aresta.peso}")
+            print(f"({aresta.origem:02d}) <-> ({aresta.destino:02d}) \t| Peso: {aresta.peso:02d}")
+        print("_"* 150)
 
 
     def kruskal(self):
@@ -42,7 +51,6 @@ class UnionFind:
         for node in nodes:
             self.parent[node] = node
         
-        print(self.parent)
         
     
     def find(self, node):
