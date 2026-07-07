@@ -1,6 +1,0 @@
-from interface.IAlgorithmn import IAlgorithmn
-
-class Biconnected(IAlgorithmn):
-    
-    def run(self, graph):
-        print("Biconnected")

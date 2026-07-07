@@ -1,5 +1,5 @@
-from algoritithms import (BFS, DFS, Biconnected, CPM, Kosaraju, Pert, Tarjan, TopologicalSort, TSP, Kruskal, Dijkstra, FloydWarshall)
-from graph import (GKruskal, Graph, GDijkstra, GFloydWarshall)
+from algoritithms import (BFS, DFS,  Kruskal, Dijkstra, FloydWarshall, WelshPowell, FordFukerson)
+from graph import (GKruskal, Graph, GDijkstra, GFloydWarshall, Gcolorido, GFordFukerson)
 
 class Contracts:
 
@@ -7,16 +7,11 @@ class Contracts:
     algoritimos ={
         "BFS":  BFS,
         "DFS":  DFS,
-        "Biconnected": Biconnected,
-        "CPM": CPM,
-        "Kosaraju": Kosaraju,
-        "Pert": Pert,
-        "Tarjan": Tarjan,
-        "TopologicalSort": TopologicalSort,
-        "TSP": TSP,
         'Kruskal': Kruskal,
         'Dijkstra': Dijkstra ,
-        'FloydWarshall': FloydWarshall
+        'FloydWarshall': FloydWarshall,
+        'WelshPowell':WelshPowell,
+        'FordFukerson': FordFukerson
     }
 
 
@@ -25,7 +20,9 @@ class Contracts:
         'DFS': Graph,
         'BFS': Graph,
         'Dijkstra': GDijkstra,
-        'FloydWarshall': GFloydWarshall
+        'FloydWarshall': GFloydWarshall,
+        'WelshPowell': Gcolorido,
+        'FordFukerson': GFordFukerson
     }
 
     @classmethod
