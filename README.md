@@ -51,10 +51,10 @@ O programa será iniciado e exibirá o menu com os algoritmos implementados.
 docker compose build
 ```
 
-* Caso apenas o código-fonte tenha sido alterado, não é necessário reconstruir a imagem. Basta iniciar um novo container e executar o programa novamente.
+* Caso apenas o código-fonte tenha sido alterado, não é necessário reconstruir a imagem. Basta executar o programa novamente.
 
 ```bash
-docker compose run --rm graph-app bash
+python app/main.py
 ```
 
 ## Encerrando

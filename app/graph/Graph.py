@@ -16,15 +16,15 @@ class Graph(IGraph):
         NodeList = [Node(n) for n in number]
 
         print("Grafo gerado:")
-        print("(ORIGEM)-->\t(DESTINO)\n")
+        print("(ORIGEM) --> (DESTINO)\n")
 
         for node in NodeList:
             for newNode in NodeList:
                 if node != newNode and (random.choice([True, False, False, False, False])):
-                    print(f"({node.data:02d})\t-->\t({newNode.data:02d})")
+                    print(f"   ({node.data:02d})  -->  ({newNode.data:02d})")
                     node.vizinhos.append(newNode)
                     if random.choice([True, False, False]):
-                        print(f"({newNode.data:02d})\t-->\t({node.data:02d})")
+                        print(f"   ({newNode.data:02d})  -->  ({node.data:02d})")
                         newNode.vizinhos.append(node)
 
 

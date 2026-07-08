@@ -15,10 +15,6 @@ class GDijkstra(IGraph):
         graph = []
         NodeList = random.sample(string.ascii_uppercase, 10)
 
-        
-        print("Grafo gerado:")
-        print(f"(ORIGEM)\t(PESO)\t\t(DESTINO)")
-
         for i in range(len(NodeList)):
             for j in range(i + 1, len(NodeList)):
                 if random.choice([True, True, True, True, False]):
@@ -29,13 +25,13 @@ class GDijkstra(IGraph):
                         peso = random.randint(1, 36)
                         )
                     )
-                        
         graph.sort(key=lambda x: x.peso)
 
+
+        print("Grafo gerado:")
+        print(f"(ORIGEM) (PESO) (DESTINO)")
         for iten in graph:
-            print(f"  ({iten.origem})\t---\t  {iten.peso:02d}\t--->\t  ({iten.destino})")
-
-
+            print(f"  ({iten.origem}) ---- {iten.peso:02d} ---> ({iten.destino})")
 
         print("\nGrafo criado com sucesso!\n\n")
 
