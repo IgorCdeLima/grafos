@@ -1,0 +1,25 @@
+# Bytecode Python
+__pycache__/
+*.py[cod]
+
+# Ambiente virtual
+venv/
+.venv/
+env/
+
+# Cache de testes
+.pytest_cache/
+
+# Cache do Ruff/Mypy
+.mypy_cache/
+.ruff_cache/
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
