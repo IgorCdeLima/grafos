@@ -46,11 +46,11 @@ class GFordFukerson(IGraph):
                     node.arestas.append(aresta)
         
         for aresta in arestaList:
-            if random.choice([True, False, False, False, False]):
+            if random.choice([True, False, False, False, False]) and aresta.destino != sink:
                 aresta.capacidade = random.randint(1,20)
                 source.arestas.append(aresta)
 
-        for _ in range(1, 3 ):
+        for _ in range(1, 2 ):
             arestaNum = random.randint(0,QTD_VERTICES-1)
             arestaList[arestaNum].capacidade =  random.randint(1,20)
             arestaList[arestaNum].destino = sink
