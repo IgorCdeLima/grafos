@@ -16,7 +16,7 @@ class Graph(IGraph):
         NodeList = [Node(n) for n in number]
 
         print("Grafo gerado:")
-        print("(DESTINO)-->\t(ORIGEM)\n")
+        print("(ORIGEM)-->\t(DESTINO)\n")
 
         for node in NodeList:
             for newNode in NodeList:

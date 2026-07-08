@@ -8,4 +8,5 @@ services:
     container_name: graph-algorithms
     volumes:
       - .:/app
+    stdin_open: true
     tty: true

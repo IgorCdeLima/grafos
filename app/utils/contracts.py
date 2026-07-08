@@ -2,33 +2,36 @@ from algoritithms import (BFS, DFS,  Kruskal, Dijkstra, FloydWarshall, WelshPowe
 from graph import (GKruskal, Graph, GDijkstra, GFloydWarshall, Gcolorido, GFordFukerson)
 
 class Contracts:
-
     
     algoritimos ={
-        "BFS":  BFS,
-        "DFS":  DFS,
-        'Kruskal': Kruskal,
-        'Dijkstra': Dijkstra ,
-        'FloydWarshall': FloydWarshall,
-        'WelshPowell':WelshPowell,
-        'FordFukerson': FordFukerson
+        1: BFS,
+        2: DFS,
+        3: Kruskal,
+        4: Dijkstra ,
+        5: FloydWarshall,
+        6: WelshPowell,
+        7: FordFukerson
     }
 
 
     graphs = {
-        'Kruskal': GKruskal,
-        'DFS': Graph,
-        'BFS': Graph,
-        'Dijkstra': GDijkstra,
-        'FloydWarshall': GFloydWarshall,
-        'WelshPowell': Gcolorido,
-        'FordFukerson': GFordFukerson
+        1: Graph,
+        2: Graph,
+        3: GKruskal,
+        4: GDijkstra,
+        5: GFloydWarshall,
+        6: Gcolorido,
+        7: GFordFukerson
     }
 
     @classmethod
-    def get_algorithm(cls, name:str):
+    def get_algorithm(cls, name:int):
         return cls.algoritimos[name]()
 
     @classmethod
-    def get_graph(cls, name:str):
+    def get_graph(cls, name:int):
         return cls.graphs[name]()
+    
+    @classmethod
+    def getTotalAlgorithmn(cls):
+        return len(cls.algoritimos) +1
