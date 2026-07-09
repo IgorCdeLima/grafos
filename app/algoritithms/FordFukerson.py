@@ -9,11 +9,8 @@ class pathFluxo:
     
     def definirGargalo(self):
         lista = []
-        print(f"CAMINHO: ({self.id}): ", end=' ')
         for node in self.caminho:
             lista.append(node.fluxo)
-            print(node.fluxo, end=' ')
-        print("\n\n")
         return min(lista)
 
 
@@ -84,7 +81,14 @@ class FordFukerson(IAlgorithmn):
     def salvarLista(self):
         self.contador +=1
         newpath = pathFluxo(deepcopy(self.caminho), self.contador)
-        if self.pathGraphFluxo is None or self.pathGraphFluxo.gargalo < newpath.gargalo:
+        if (self.pathGraphFluxo is None 
+            or  (   
+                self.pathGraphFluxo.gargalo < newpath.gargalo
+                and
+                len(self.pathGraphFluxo.caminho) > len(newpath.caminho)
+                )   
+            ):
+
             self.pathGraphFluxo = newpath
         
 
