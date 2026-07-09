@@ -3,16 +3,17 @@ import random
 import string
 
 class Vertices:
-    def __init__(self, data, tipo = None):
+    def __init__(self, data, tipo = None, fluxo = float('inf')):
         self.data = data
         self.tipo = tipo
         self.arestas = []
+        self.fluxo = fluxo
 
 class Aresta:
     def __init__(self, destino, capacidade = 1):
         self.destino = destino
         self.capacidade = capacidade
-        self.fluxo = 0
+
 
 
 class GFordFukerson(IGraph):
@@ -26,8 +27,8 @@ class GFordFukerson(IGraph):
         nodeList = [Vertices(datas[i]) for i in range(QTD_VERTICES)]
         arestaList = []
 
-        source = Vertices('SINK', 'SINK')
-        sink = Vertices('EXIT', 'EXIT')
+        source = Vertices('SOURCE', 'SOURCE', fluxo=20)
+        sink = Vertices('SINK', 'SINK')
 
 
         for _ in range(0, QTD_VERTICES):
@@ -46,9 +47,14 @@ class GFordFukerson(IGraph):
                     node.arestas.append(aresta)
         
         for aresta in arestaList:
-            if random.choice([True, False, False, False, False]) and aresta.destino != sink:
+            if random.choice([True, False, False, False, False]) and aresta.destino.data != sink.data:
                 aresta.capacidade = random.randint(1,20)
                 source.arestas.append(aresta)
+
+        if source.arestas == []:
+            aresta = arestaList[random.randint(1, len(arestaList)-1)]
+            aresta.capacidade = random.randint(1,20)
+            source.arestas.append(aresta)
 
         for _ in range(1, 2 ):
             arestaNum = random.randint(0,QTD_VERTICES-1)

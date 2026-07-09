@@ -24,11 +24,12 @@ def info():
 def chooseNumber():
     algorithmn = input("Qual você quer testar: ")
     print("=" * 100)
+    if not algorithmn.isdecimal() or  (0 > int(algorithmn) > Contracts.getTotalAlgorithmn()):
+        chooseNumber()
+        
     if int(algorithmn) == 0:
         sys.exit(0)
 
-    if not algorithmn.isdecimal() or  (1 > int(algorithmn) > Contracts.getTotalAlgorithmn()):
-        chooseNumber()
     
     return int(algorithmn)
 
