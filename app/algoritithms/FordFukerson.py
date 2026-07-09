@@ -1,14 +1,19 @@
 from interface.IAlgorithmn import IAlgorithmn
+from copy import deepcopy
 
 class pathFluxo:
-    def __init__(self, caminho:list, ):
+    def __init__(self, caminho:list, id:int ):
+        self.id = id
         self.caminho = caminho
         self.gargalo = self.definirGargalo()
     
     def definirGargalo(self):
         lista = []
+        print(f"CAMINHO: ({self.id}): ", end=' ')
         for node in self.caminho:
             lista.append(node.fluxo)
+            print(node.fluxo, end=' ')
+        print("\n\n")
         return min(lista)
 
 
@@ -19,6 +24,7 @@ class FordFukerson(IAlgorithmn):
     arestaList = []
     caminho = []
     pathGraphFluxo = None
+    contador = 0
 
     def save(self, data):
         self.source = data['source']
@@ -29,6 +35,7 @@ class FordFukerson(IAlgorithmn):
     def run(self):
         self.caminho = []
         self.pathGraphFluxo = None
+        self.contador = 0
         self.percorre(self.source, self.source.fluxo)
 
     def TDE(self):
@@ -73,14 +80,10 @@ class FordFukerson(IAlgorithmn):
                 self.caminho.remove(aresta.destino)
                 fluxo = nodo.fluxo
         
-
-            
-
-        
-        
     
     def salvarLista(self):
-        newpath = pathFluxo(self.caminho.copy())
+        self.contador +=1
+        newpath = pathFluxo(deepcopy(self.caminho), self.contador)
         if self.pathGraphFluxo is None or self.pathGraphFluxo.gargalo < newpath.gargalo:
             self.pathGraphFluxo = newpath
         
@@ -90,13 +93,22 @@ class FordFukerson(IAlgorithmn):
 
         print()
 
-        lista = []
+        path = []
+        fluxo = []
+        if self.pathGraphFluxo is None:
+            print("\nCaminho não existe!")
+            return
+
         for nodo in self.pathGraphFluxo.caminho:
-            lista.append(str((nodo.data, nodo.fluxo)))
+            path.append(nodo.data)
+            fluxo.append(str(nodo.fluxo))
 
-
-
-        print(f"Caminho : ", end=' ')
-        print(" -> ".join(lista))
+        print("ID: ", self.pathGraphFluxo.id)
+        print(f"\nCAMINHO: ", end=' ')
+        print(" ->  ".join(path))
+        print(f"FLUXO   :    ", end=' ')
+        print(" -> ".join(f"{f:>2}" for f in fluxo))
+    
         print(f"Gargalo: {self.pathGraphFluxo.gargalo}")
-        print()
+
+
