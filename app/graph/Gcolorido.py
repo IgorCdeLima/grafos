@@ -27,6 +27,7 @@ class Gcolorido(IGraph):
         NodeList.sort(key=lambda node: node.grau, reverse=True)
 
         zoologico = self.graphZoo(zoologicoNodes)
+        zoologico.sort(key=lambda node: node.grau, reverse=True)
 
         return {
             'graph': NodeList,
@@ -38,7 +39,9 @@ class Gcolorido(IGraph):
     def gerarCor(self):
         numero = {}
         for num in range(10):
-            numero[num] = ("#{:06X}".format(random.randint(0, 0xFFFFFF)))
+            numero[num] = "#{:02X}{:02X}{:02X}".format(
+                random.randint(80, 255), random.randint(80, 255), random.randint(80, 255)
+            )
         return numero
         
     def gerarVizinho(self, nodeList):

@@ -24,7 +24,7 @@ def info():
 def chooseNumber():
     algorithmn = input("Qual você quer testar: ")
     print("=" * 100)
-    if not algorithmn.isdecimal() or  (0 > int(algorithmn) > Contracts.getTotalAlgorithmn()):
+    if not algorithmn.isdecimal() or not (0 <= int(algorithmn) <= Contracts.getTotalAlgorithmn()):
         algorithmn = chooseNumber()
         
     if int(algorithmn) == 0:

@@ -3,9 +3,11 @@ from collections import deque
 
 class BFS(IAlgorithmn):
     graph = None
+    vertices = []
 
-    def save(self, graph):
-        self.graph = graph
+    def save(self, data):
+        self.graph = data['start']
+        self.vertices = data['vertices']
 
     def run(self):
         self.path = []
@@ -37,10 +39,10 @@ class BFS(IAlgorithmn):
         self.run()
         nodes = []
 
-        qtd_vertices = len(self.path)
+        qtd_vertices = len(self.vertices)
         print(f"\tTotal de vertices: {qtd_vertices}\n")
 
-        for node in self.path.copy():
+        for node in self.vertices:
             self.graph = node
             self.run()
             visited_vertice = len(self.path)

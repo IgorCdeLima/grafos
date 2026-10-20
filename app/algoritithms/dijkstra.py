@@ -128,16 +128,20 @@ class Dijkstra(IAlgorithmn):
         
         for vertices in self.node_list:
             caminho = self.questionB(vertices)
-            print(f"{vertices}: {'->'.join(caminho)}")
+            print(f"{vertices}: {'->'.join(caminho) if caminho else 'sem caminho'}")
 
     def recosntruirTodosCaminhos(self):
         print("\nC)Caminho entre origem e destino:\n")
 
-        destino = choice(self.node_list)
+        alcancaveis = [v for v in self.node_list if self.distancia[v] != float('inf')]
+        destino = choice(alcancaveis)
 
         self.questionC(destino)
 
     def questionB(self, destino):
+        if self.distancia[destino] == float('inf'):
+            return None
+
         caminho = []
 
         atual = destino

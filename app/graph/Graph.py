@@ -31,4 +31,7 @@ class Graph(IGraph):
         self.initial_graph = NodeList[0]
 
         print("\nGrafo criado com sucesso!\n\n")
-        return self.initial_graph
+        return {
+            'start': self.initial_graph,
+            'vertices': NodeList
+        }

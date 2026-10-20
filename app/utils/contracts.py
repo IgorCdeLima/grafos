@@ -34,4 +34,4 @@ class Contracts:
     
     @classmethod
     def getTotalAlgorithmn(cls):
-        return len(cls.algoritimos) +1
+        return len(cls.algoritimos)
